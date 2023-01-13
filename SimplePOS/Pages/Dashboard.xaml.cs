@@ -6,4 +6,9 @@ public partial class Dashboard : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    public async void OnOrderTypClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(Dashboard));
+    }
 }
