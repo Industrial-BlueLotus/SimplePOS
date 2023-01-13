@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SimplePOS.MainPage" Title="Login" >
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+
+            <Entry Text=".NET MAUI" ClearButtonVisibility="WhileEditing" />
+            <Entry IsPassword="true" />
+            <Button x:Name="LoginBtn" Text="Login" SemanticProperties.Hint="Click to login" Clicked="OnLoginClicked" HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:SimplePOS.Views" x:Class="SimplePOS.Pages.Dashboard" Title="BLX - Super Mart">
+    <StackLayout>
+      
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+        </Grid>
+        <Shell>
+            <TabBar>
+                <Tab Title="Work in Study Book">
+                    <ShellContent Title="Cats" ContentTemplate="{DataTemplate views:WISBook}" />
+
+                </Tab>
+                <Tab Title="Shoe Polish">
+                    <ShellContent ContentTemplate="{DataTemplate views:ShoePolish}" />
+                </Tab>
+
+                <Tab Title="Body Lotion">
+                    <ShellContent ContentTemplate="{DataTemplate views:BodyLotion}" />
+                </Tab>
+            </TabBar>
+        </Shell>
+
+    </StackLayout>
+</ContentPage>
