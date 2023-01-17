@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:SimplePOS.Views" x:Class="SimplePOS.Pages.Dashboard" Title="BLX - Super Mart">
-    <ScrollView>
-        <StackLayout>
+
+    <StackLayout>
 
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="500" />
-                    <RowDefinition Height="100" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="500" />
+                <RowDefinition Height="200" />
 
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="2*" />
-                </Grid.ColumnDefinitions>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Shell>
+                <!--<TabBar x:Name="Tabbs">-->
+                    <Tab Grid.Column="0" >
 
-                <Shell>
-                    <TabBar Grid.Column="0">
-                        <Tab>
-                            <ShellContent Title="WISBook" ContentTemplate="{DataTemplate views:WISBook}" />
-                            <ShellContent Title="ShoePolish" ContentTemplate="{DataTemplate views:ShoePolish}" />
-                            <ShellContent Title="BodyLotion" ContentTemplate="{DataTemplate views:BodyLotion}" />
-                        </Tab>
+                    
+                    <ShellContent Title="ShoePolish" ContentTemplate="{DataTemplate views:ShoePolish}" />
+                    <ShellContent Title="WISBook" ContentTemplate="{DataTemplate views:WISBook}" />
 
-                    </TabBar>
+                    <ShellContent Title="BodyLotion" ContentTemplate="{DataTemplate views:BodyLotion}" />
+                    </Tab>
+                    
 
-                </Shell>
-                <Button x:Name="OrderTypBtn" Text="Order Type" Grid.Column="1" WidthRequest="100" HeightRequest="50" SemanticProperties.Hint="Click to Change Type" Clicked="OnOrderTypClicked" HorizontalOptions="Center" />
+                <!--</TabBar>-->
 
-                
-            </Grid>
+            </Shell>
 
-        </StackLayout>
-    </ScrollView>
+            <Button x:Name="OrderTypBtn" Text="Order Type" Grid.Column="1" WidthRequest="100" HeightRequest="50" SemanticProperties.Hint="Click to Change Type" Clicked="OnOrderTypClicked" HorizontalOptions="Center" />
+
+
+        </Grid>
+
+    </StackLayout>
 </ContentPage>

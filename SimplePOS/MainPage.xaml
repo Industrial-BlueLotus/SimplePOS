@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SimplePOS.MainPage" Title="Login" >
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SimplePOS.MainPage" NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center" WidthRequest="300">
+            <Image Source="logo.jpeg" WidthRequest="150" HeightRequest="150" />
+            <Entry Text="User Name"  HorizontalTextAlignment="Center" />
+            <Entry Text="Password" IsPassword="true" HorizontalTextAlignment="Center" />
+            <Entry Text="Environment Name"  HorizontalTextAlignment="Center" />
 
-            <Entry Text=".NET MAUI" ClearButtonVisibility="WhileEditing" />
-            <Entry IsPassword="true" />
-            <Button x:Name="LoginBtn" Text="Login" SemanticProperties.Hint="Click to login" Clicked="OnLoginClicked" HorizontalOptions="Center" />
+            <Button x:Name="LoginBtn" Text="Login" SemanticProperties.Hint="Click to login" Clicked="OnLoginClicked" HorizontalOptions="Center" WidthRequest="300" />
+            <Image Source="banner.jpeg" />
 
         </VerticalStackLayout>
     </ScrollView>
