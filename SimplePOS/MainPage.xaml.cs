@@ -1,4 +1,5 @@
 ﻿using SimplePOS.Pages;
+using SimplePOS.ViewModels;
 
 namespace SimplePOS;
 
@@ -9,12 +10,11 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        FirstViewModel model = new();
+        this.BindingContext = model;
 
     }
 
-    public async void OnLoginClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(Dashboard));
-    }
+
 }
 

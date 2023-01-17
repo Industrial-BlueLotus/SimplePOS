@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SimplePOS.MainPage" NavigationPage.HasNavigationBar="False">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SimplePOS.MainPage" xmlns:model="clr-namespace:SimplePOS.ViewModels" x:DataType="model:FirstViewModel" NavigationPage.HasNavigationBar="False">
 
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center" WidthRequest="300">
             <Image Source="logo.jpeg" WidthRequest="150" HeightRequest="150" />
-            <Entry Text="User Name"  HorizontalTextAlignment="Center" />
-            <Entry Text="Password" IsPassword="true" HorizontalTextAlignment="Center" />
-            <Entry Text="Environment Name"  HorizontalTextAlignment="Center" />
+            <Entry x:Name="Username" Placeholder="User Name" Text="{Binding Username1 }" PlaceholderColor="DarkGray" HorizontalTextAlignment="Center" />
+            <Entry Placeholder="Password" IsPassword="true" Text="{Binding Password1}" HorizontalTextAlignment="Center" />
+            <Entry Placeholder="Environment Name" Text="{Binding EnvironmentName}" PlaceholderColor="DarkGray" HorizontalTextAlignment="Center" />
 
-            <Button x:Name="LoginBtn" Text="Login" SemanticProperties.Hint="Click to login" Clicked="OnLoginClicked" HorizontalOptions="Center" WidthRequest="300" />
+            <Button x:Name="LoginBtn" Text="Login" SemanticProperties.Hint="Click to login" Command="{Binding LoginBtnClickCommand}" HorizontalOptions="Center" WidthRequest="300" />
             <Image Source="banner.jpeg" />
 
         </VerticalStackLayout>
