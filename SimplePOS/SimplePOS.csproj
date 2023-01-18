@@ -52,11 +52,17 @@
 		<None Remove="Resources\Images\banner.jpeg" />
 		<None Remove="Resources\Images\icon_user.png" />
 		<None Remove="Resources\Images\logo.jpeg" />
+		<None Remove="Resources\Raw\monkeydata.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Include="ViewModels\monkeydata.json" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 		<PackageReference Include="RestSharp" Version="108.0.3" />
 	</ItemGroup>
 

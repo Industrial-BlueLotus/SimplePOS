@@ -31,7 +31,7 @@ namespace SimplePOS.ViewModels
             //Username = Username;
             //Password = Password;
             //EnvironmentName = EnvironmentName;
-
+            await Shell.Current.GoToAsync(nameof(Dashboard));
             var client = new RestClient();
 
             LoginObj logobj = new LoginObj();
@@ -52,12 +52,13 @@ namespace SimplePOS.ViewModels
             {
                 var responseContent = response.Content.ToString();
                 Console.WriteLine(responseContent);
-                await Shell.Current.GoToAsync(nameof(Dashboard));
+                
 
             }
             else
             {
                 Console.WriteLine(response.StatusCode);
+                //await DisplayAlert("Alert", "You have been alerted", "OK");
             }
         }
 
