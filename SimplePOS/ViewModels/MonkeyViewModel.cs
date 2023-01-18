@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Text.Json;
+using Newtonsoft.Json;
+
 
 namespace SimplePOS.ViewModels
 {
@@ -21,32 +22,40 @@ namespace SimplePOS.ViewModels
         [ObservableProperty]
         public string name;
 
-        
 
-        public async MonkeyViewModel()
+
+
+        public MonkeyViewModel()
         {
-            var json = await LoadMauiAssetAsync();
-            await DisplayAlert("", json, "OK");
+            this.LoadMauiAssetAsync();
         }
 
         public async void LoadMauiAssetAsync()
         {
-            string responseContent = File.ReadAllText(@"./monkeydata.json");
+            string _path = "sample3.json";
+
+            using (var reader = new StreamReader(_path))
+            {
+                string jsonfromFile = reader.ReadToEnd();
+            }
+
+
+
+
             //var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
 
 
 
-
             //string responseContent = stream.ToString();
-            if (responseContent != null)
-            {
-                List<Monkey> array = JsonConvert.DeserializeObject<List<Monkey>>(responseContent);
+            //if (responseContent != null)
+            //{
+            //    List<Monkey> array = JsonConvert.DeserializeObject<List<Monkey>>(responseContent);
 
-                LItems = new ObservableCollection<Monkey>(array);
+            //    LItems = new ObservableCollection<Monkey>(array);
 
-                Name = LItems[1].Name.ToString();
+            //    Name = LItems[1].Name.ToString();
 
-            }
+            //}
 
         }
     }
