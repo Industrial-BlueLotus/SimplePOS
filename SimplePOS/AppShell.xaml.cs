@@ -1,5 +1,6 @@
 ﻿
 
+
 using SimplePOS.Pages;
 using SimplePOS.Views;
 
@@ -16,5 +17,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(BodyLotion), typeof(BodyLotion));
         Routing.RegisterRoute(nameof(WISBook), typeof(WISBook));
         Routing.RegisterRoute(nameof(ShoePolish), typeof(ShoePolish));
+        Routing.RegisterRoute(nameof(SortPopup), typeof(SortPopup));
     }
 }

@@ -70,6 +70,9 @@
 		<MauiXaml Update="Pages\Dashboard.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Pages\SortPopup.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Views\BodyLotion.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

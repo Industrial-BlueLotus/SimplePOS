@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using RestSharp;
 using SimplePOS.Pages;
@@ -24,13 +25,25 @@ namespace SimplePOS.ViewModels
 
         private readonly INavigation _navigation;
 
+        [ObservableProperty]
+        bool _IsPopUp = false;
+
+        public FirstViewModel()
+        {
+        }
+
+
         public FirstViewModel(INavigation navigation)
         {
             _navigation = navigation;
         }
 
-        public FirstViewModel()
+
+        private bool ShowPopup()
         {
+            var popup = new SortPopup();
+            Shell.Current.ShowPopup(popup);
+            return true;
         }
 
         [RelayCommand]
@@ -48,29 +61,44 @@ namespace SimplePOS.ViewModels
             logobj.UserName = Username1;
             logobj.Password = Password1;
 
-            var request = new RestRequest("https://bl360x.com/PartnerOrder/api/Login/ValidateLogin").AddJsonBody(logobj);
-            request.Method = Method.Post;
 
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Content-Type", "application/json");
 
-            RestResponse response = await client.PostAsync(request);
+            try
+            {
+                var request = new RestRequest("https://bl360x.com/PartnerOrder/api/Login/ValidateLogin").AddJsonBody(logobj);
+                request.Method = Method.Post;
 
+                request.AddHeader("Accept", "application/json");
+                request.AddHeader("Content-Type", "application/json");
+
+                RestResponse response = await client.PostAsync(request);
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var responseContent = response.Content.ToString();
+                    Console.WriteLine(responseContent);
+                    await Shell.Current.GoToAsync(nameof(Dashboard));
+                    //ShowPopup();
+
+                }
+                else
+                {
+                    Console.WriteLine(response.StatusCode);
+                    //await _navigation.PushAsync(new AlertPop());
+
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ShowPopup();
+                //await _navigation.PushAsync(new AlertPop());
+
+            }
             //check the status code of the response
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var responseContent = response.Content.ToString();
-                Console.WriteLine(responseContent);
-                await Shell.Current.GoToAsync(nameof(Dashboard));
 
-            }
-            else
-            {
-                Console.WriteLine(response.StatusCode);
-                await _navigation.PushAsync(new AlertPop());
-
-
-            }
         }
 
 
