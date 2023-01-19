@@ -10,8 +10,14 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+
         FirstViewModel model = new();
         this.BindingContext = model;
+
+
+
+
+
 
     }
 

@@ -32,17 +32,6 @@ namespace SimplePOS.ViewModels
 
         public async void LoadMauiAssetAsync()
         {
-            string _path = "sample3.json";
-
-            using (var reader = new StreamReader(_path))
-            {
-                string jsonfromFile = reader.ReadToEnd();
-            }
-
-
-
-
-            //var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
 
 
 

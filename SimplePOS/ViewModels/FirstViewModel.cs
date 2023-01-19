@@ -22,7 +22,16 @@ namespace SimplePOS.ViewModels
         [ObservableProperty]
         private string _environmentName;
 
+        private readonly INavigation _navigation;
 
+        public FirstViewModel(INavigation navigation)
+        {
+            _navigation = navigation;
+        }
+
+        public FirstViewModel()
+        {
+        }
 
         [RelayCommand]
         public async void OnLoginBtnClick()
@@ -31,7 +40,7 @@ namespace SimplePOS.ViewModels
             //Username = Username;
             //Password = Password;
             //EnvironmentName = EnvironmentName;
-            await Shell.Current.GoToAsync(nameof(Dashboard));
+
             var client = new RestClient();
 
             LoginObj logobj = new LoginObj();
@@ -52,15 +61,18 @@ namespace SimplePOS.ViewModels
             {
                 var responseContent = response.Content.ToString();
                 Console.WriteLine(responseContent);
-                
+                await Shell.Current.GoToAsync(nameof(Dashboard));
 
             }
             else
             {
                 Console.WriteLine(response.StatusCode);
-                //await DisplayAlert("Alert", "You have been alerted", "OK");
+                await _navigation.PushAsync(new AlertPop());
+
+
             }
         }
+
 
     }
 }

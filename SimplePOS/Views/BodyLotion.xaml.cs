@@ -10,8 +10,8 @@ public partial class BodyLotion : ContentPage
     public BodyLotion()
     {
         InitializeComponent();
-        MonkeyViewModel monmodel = new();
-        this.BindingContext = monmodel;
+        //MonkeyViewModel monmodel = new();
+        //this.BindingContext = monmodel;
     }
 
 
