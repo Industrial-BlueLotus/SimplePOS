@@ -3,12 +3,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using RestSharp;
 using SimplePOS.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SimplePOS.ViewModels
 {
@@ -23,19 +19,14 @@ namespace SimplePOS.ViewModels
         [ObservableProperty]
         private string _environmentName;
 
-        private readonly INavigation _navigation;
+
 
         [ObservableProperty]
         bool _IsPopUp = false;
 
         public FirstViewModel()
         {
-        }
 
-
-        public FirstViewModel(INavigation navigation)
-        {
-            _navigation = navigation;
         }
 
 
@@ -72,6 +63,7 @@ namespace SimplePOS.ViewModels
                 else if (response.StatusCode == HttpStatusCode.InternalServerError)
                 {
                     Console.WriteLine(response.StatusCode);
+
                 }
                 else
                 {
@@ -87,6 +79,7 @@ namespace SimplePOS.ViewModels
             {
 
                 Console.WriteLine(ex);
+
                 //await _navigation.PushAsync(new AlertPop());
 
             }

@@ -12,7 +12,7 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
 
-
+        Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
         Routing.RegisterRoute(nameof(Dashboard), typeof(Dashboard));
         Routing.RegisterRoute(nameof(BodyLotion), typeof(BodyLotion));
         Routing.RegisterRoute(nameof(WISBook), typeof(WISBook));
