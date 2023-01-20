@@ -17,7 +17,7 @@ namespace SimplePOS.ViewModels
 
         public DashViewModel()
         {
-            this.LoadResponse();
+            //this.LoadResponse();
 
         }
 
