@@ -1,7 +1,8 @@
 ﻿using CommunityToolkit.Maui.Views;
-
+using RestSharp;
 using SimplePOS.Pages;
 using SimplePOS.ViewModels;
+using System.Net;
 
 namespace SimplePOS;
 
@@ -16,20 +17,9 @@ public partial class MainPage : ContentPage
         FirstViewModel model = new();
         this.BindingContext = model;
 
-        if (model.IsPopUp)
-        {
-            var popup1 = new SortPopup();
-            this.ShowPopup(popup1);
-
-
-        }
-
-
-
-
-
 
     }
+
 
 
 }

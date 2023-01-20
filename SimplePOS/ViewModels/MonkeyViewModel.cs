@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using Newtonsoft.Json;
+
 
 
 namespace SimplePOS.ViewModels
@@ -16,8 +16,7 @@ namespace SimplePOS.ViewModels
     public partial class MonkeyViewModel : ObservableObject
     {
 
-        [ObservableProperty]
-        ObservableCollection<Monkey> _LItems;
+
 
         [ObservableProperty]
         public string name;
@@ -30,21 +29,9 @@ namespace SimplePOS.ViewModels
             this.LoadMauiAssetAsync();
         }
 
-        public async void LoadMauiAssetAsync()
+        public void LoadMauiAssetAsync()
         {
 
-
-
-            //string responseContent = stream.ToString();
-            //if (responseContent != null)
-            //{
-            //    List<Monkey> array = JsonConvert.DeserializeObject<List<Monkey>>(responseContent);
-
-            //    LItems = new ObservableCollection<Monkey>(array);
-
-            //    Name = LItems[1].Name.ToString();
-
-            //}
 
         }
     }

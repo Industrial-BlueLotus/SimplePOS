@@ -39,33 +39,21 @@ namespace SimplePOS.ViewModels
         }
 
 
-        private bool ShowPopup()
-        {
-            var popup = new SortPopup();
-            Shell.Current.ShowPopup(popup);
-            return true;
-        }
-
         [RelayCommand]
         public async void OnLoginBtnClick()
         {
-
-            //Username = Username;
-            //Password = Password;
-            //EnvironmentName = EnvironmentName;
-
+            GlobalUsings link = new();
             var client = new RestClient();
 
-            LoginObj logobj = new LoginObj();
-
-            logobj.UserName = Username1;
-            logobj.Password = Password1;
-
-
+            LoginObj logobj = new()
+            {
+                UserName = Username1,
+                Password = Password1
+            };
 
             try
             {
-                var request = new RestRequest("https://bl360x.com/PartnerOrder/api/Login/ValidateLogin").AddJsonBody(logobj);
+                var request = new RestRequest(link.apilinkpub + "api/Login/ValidateLogin").AddJsonBody(logobj);
                 request.Method = Method.Post;
 
                 request.AddHeader("Accept", "application/json");
@@ -81,6 +69,10 @@ namespace SimplePOS.ViewModels
                     //ShowPopup();
 
                 }
+                else if (response.StatusCode == HttpStatusCode.InternalServerError)
+                {
+                    Console.WriteLine(response.StatusCode);
+                }
                 else
                 {
                     Console.WriteLine(response.StatusCode);
@@ -93,14 +85,13 @@ namespace SimplePOS.ViewModels
             }
             catch (Exception ex)
             {
-                ShowPopup();
+
+                Console.WriteLine(ex);
                 //await _navigation.PushAsync(new AlertPop());
 
             }
-            //check the status code of the response
+
 
         }
-
-
     }
 }

@@ -35,22 +35,23 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>-->
             <Shell>
+
                 <TabBar x:Name="Tabbs">
-                    <Tab Grid.Column="0" >
+                    <Tab Grid.Column="0" Title="hello" >
 
-                    
-                    <ShellContent Title="ShoePolish" ContentTemplate="{DataTemplate views:ShoePolish}" />
-                    <ShellContent Title="WISBook" ContentTemplate="{DataTemplate views:WISBook}" />
 
-                    <ShellContent Title="BodyLotion" ContentTemplate="{DataTemplate views:BodyLotion}" />
+                        <ShellContent FlyoutItemIsVisible="False" Title="ShoePolish" ContentTemplate="{DataTemplate views:ShoePolish}" />
+                        <ShellContent Title="WISBook" ContentTemplate="{DataTemplate views:WISBook}" />
+
+                        <ShellContent Title="BodyLotion" ContentTemplate="{DataTemplate views:BodyLotion}" />
                     </Tab>
-                    
+
 
                 </TabBar>
 
             </Shell>
 
-            <Button x:Name="OrderTypBtn" Text="Order Type" Grid.Column="1" WidthRequest="100" HeightRequest="50" SemanticProperties.Hint="Click to Change Type" Clicked="OnOrderTypClicked" HorizontalOptions="Center" />
+            <Button x:Name="OrderTypBtn" Text="Order Type" Grid.Column="1" WidthRequest="100" HeightRequest="50" SemanticProperties.Hint="Click to Change Type" Command="{Binding OrderTypClickCommand}" HorizontalOptions="Center" />
 
 
         </Grid>

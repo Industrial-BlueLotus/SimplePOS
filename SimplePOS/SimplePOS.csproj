@@ -64,11 +64,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<MauiXaml Update="Pages\AlertPop.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
 		<MauiXaml Update="Pages\Dashboard.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Pages\OrderDetails.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Pages\SortPopup.xaml">
 		  <Generator>MSBuild:Compile</Generator>
